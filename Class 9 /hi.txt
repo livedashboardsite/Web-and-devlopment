@@ -1,0 +1,31 @@
+<h1>Languages in Web Dev <h2>
+
+<ol>
+    <li>HTML</li>
+    <ol>
+        <li>web dev language</li>
+        <li>used for building Web pages</li>
+        <ul>
+            <li>HTML4</li>
+            <li>HTML5</li>
+        </ul>
+    </ol>
+    <li>CSS</li>
+    <ol>
+        <li>styling the Webpaage</li>
+        <li>Creates Amazing Web Pages</li>
+        <ul>
+            <li>Casscading Style Sheet</li>
+        </ul>
+    </ol>
+    <li>JavaScript</li>
+    <ol>
+        <li>Adding interactivity to the Webpaage</li>
+        <li>Creates Dynamic Web Pages</li>
+    </ol>
+    <li>Python</li>
+    <ol>
+        <li>server-side scripting language</li>
+        <li>used for building dynamic Web pages</li>
+    </ol>   
+</ol>

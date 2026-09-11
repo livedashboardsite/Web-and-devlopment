@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Product Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+        }
+
+        header {
+            background-color: #176950;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #f0f0f0;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+
+        .card {
+            width: 280px;
+            height: 320px;
+            padding: 30px 20px;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-blue {
+            border: 3px solid #1E40AF;
+        }
+
+        .card-green {
+            border: 3px solid #14532D;
+        }
+
+        .card-gold {
+            border: 3px solid #B8860B;
+        }
+
+        .card-dark {
+            border: 3px solid #1F2937;
+        }
+
+        .card h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #000B3B;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .buy-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            align-self: center;
+        }
+
+        .buy-btn:hover {
+            background-color: #333;
+        }
+    .card {
+        width: 340px;
+        background-color: #ffffff;
+        border-radius: 28px;
+        overflow: visible;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        position: relative;
+    }
+
+    .card-body {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .doremon-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .doremon-wrapper .card {
+        border: none;
+    }
+
+    .card-header {
+        background-color: #7019cd;
+        height: 180px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        border-bottom-left-radius: 50% 30%;
+        border-bottom-right-radius: 50% 30%;
+        overflow: visible;
+        padding-top: 25px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 10px solid #ffffff;
+        overflow: hidden;
+        background-color: #d0d0d0;
+        position: relative;
+        z-index: 5;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .doremon-wrapper .card-body {
+        padding: 90px 28px 32px;
+        text-align: center;
+        display: block;
+        margin-top: 0;
+    }
+
+    .card-name {
+        font-size: 26px;
+        font-weight: 700;
+        color: #222222;
+        margin-bottom: 14px;
+    }
+
+    .card-text {
+        font-size: 17px;
+        color: #777777;
+        line-height: 1.55;
+        margin-bottom: 26px;
+    }
+
+    .card-btn {
+        background-color: #4169E1;
+        color: #ffffff;
+        border: none;
+        padding: 14px 32px;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .card-btn:hover {
+        background-color: #3558c5;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Product Store</h1>
+        <p>Best Products at Best Prices</p>
+    </header>
+
+    <section class="products">
+        <div class="card card-blue">
+            <div>
+                <h2>Smart Watch</h2>
+                <p>Stylish smartwatch with fitness tracking and notifications.</p>
+            </div>
+            <div>
+                <div class="price">999</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card card-green">
+            <div>
+                <h2>Wireless Headphones</h2>
+                <p>Enjoy high quality music with wireless headphones with a backlit keyboard.</p>
+            </div>
+            <div>
+                <div class="price">1499</div>
+                <button class="buy-btn">Buy Now <a href="">View More</a></button>
+            </div>
+        </div>
+
+        <div class="card card-gold">
+            <div>
+                <h2>Gaming Mouse</h2>
+                <p>Fast and comfortable gaming mouse for gamers with a backlit keyboard.</p>
+            </div>
+            <div>
+                <div class="price">1999</div>
+                <button class="buy-btn">Buy Now <a href="https://www.flipkart.com/arctic-fox-breathing-lights-dpi-upto-3600-wired-ambidextrous-optical-gaming-mouse/p/itmcdac7e0d67fca?pid=ACCH2HH3NNUYGFZ8&lid=LSTACCH2HH3NNUYGFZ8PLYD7O&marketplace=FLIPKART&q=mouse+&store=6bo%2Ftia%2F8pp%2Fp0w&srno=s_1_1&otracker=search&otracker1=search&fm=organic&iid=en_kIG5DM-P5EMldZpOszu9asmLW2uRu8u257MYIE48JZRc2_QSfmRMuY0UE3GLNIda6ypomj6PU_EIEECCdCpwAiRbF3dTQNpyQUA7gAlLtskib1hsOOq_C5I46pz9Szfx&ppt=dynamic&ppn=Login%3ACategory_List&ssid=g2x5e2w8g00000001789038458808&qH=d174d96a104d1b7b&ov_redirect=true&ov_redirect=true">.</a></button>
+            </div>
+        </div>
+
+        <div class="card card-dark">
+            <div>
+                <h2>Keyboard</h2>
+                <p>Mechanical keyboard with RGB lighting and backlit keys.</p>
+            </div>
+            <div>
+                <div class="price">2499</div>
+                <button class="buy-btn">Buy Now <a href="">View More</a></button>
+            </div>
+        </div>
+
+        <div class="doremon-wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <div class="profile-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDmBIzMYbYUswDgY8PWd85z1EuhheqVxhtJZrHstwrdyrYGxv5oVzuDVNxDWtIzFVkb1l8&s=10" alt="Doremon">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-name">Doremon</h2>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</html>
+
+

@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b1ee4;
+  color: #000;
+  font-family: serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-weight: normal;
+  margin: 30px 0 15px;
+}
+
+/* Task 1: Layered Poster with Shadow */
+.task1-wrapper {
+  background-color: #f3c2c7;
+  padding: 50px 30px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.task1-white-card {
+  background-color: #ffffff;
+  padding: 25px;
+  display: inline-block;
+}
+
+.task1-red-card {
+  background-color: #a81c1d;
+  width: 260px;
+  padding: 20px;
+  position: relative;
+}
+
+.task1-img {
+  width: 100%;
+  display: block;
+}
+
+.task1-shadow-block {
+  width: 170px;
+  height: 40px;
+  background-color: #d6b889;
+  transform: skew(-45deg);
+  margin: 35px auto 10px;
+  opacity: 0.85;
+}
+
+/* Task 3: Nested Displaced Circles */
+.task3-outer-circle {
+  width: 500px;
+  height: 500px;
+  background-color: #c9b0b4;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.task3-mid-circle {
+  width: 450px;
+  height: 450px;
+  background-color: #00c8f8;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.task3-inner-circle {
+  width: 400px;
+  height: 400px;
+  background-color: #b7e84b;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.circle-text {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-family: sans-serif;
+}

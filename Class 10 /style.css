@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.nav-arrow {
+    font-size: 36px;
+    color: #4169E1;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.nav-left {
+    transform: translateX(-10px);
+}
+
+.nav-right {
+    transform: translateX(10px);
+}
+
+.cards-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 340px;
+    background-color: #ffffff;
+    border-radius: 28px;
+    overflow: visible;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.card-header {
+    background-color: #7019cd;
+    height: 180px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-left-radius: 50% 30%;
+    border-bottom-right-radius: 50% 30%;
+    overflow: visible;
+    padding-top: 25px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid #ffffff;
+    overflow: hidden;
+    background-color: #d0d0d0;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 90px 28px 32px;
+    text-align: center;
+}
+
+.card-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 14px;
+}
+
+.card-text {
+    font-size: 17px;
+    color: #777777;
+    line-height: 1.55;
+    margin-bottom: 26px;
+}
+
+.card-btn {
+    background-color: #4169E1;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.card-btn:hover {
+    background-color: #3558c5;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4169E1;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.dot-active {
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+}
