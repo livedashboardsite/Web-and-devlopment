@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumansi Tembhare — Portfolio</title>
+<meta name="description" content="Lumansi Tembhare — first-year CSE (AI) student in Mumbai, learning to build with code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF4E3;
+    --surface:#FFD3B6;
+    --surface-2:#FFE8D1;
+    --accent:#FF5C8A;
+    --accent-ink:#4A0620;
+    --mint:#33C2FF;
+    --mint-ink:#00283A;
+    --ink:#3B2A22;
+    --ink-soft:#8A7364;
+    --shadow-dark: rgba(74,50,38,0.28);
+    --shadow-light: rgba(255,255,255,0.85);
+    --shadow-dark-strong: rgba(74,50,38,0.42);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#241C18;
+      --surface:#4A3226;
+      --surface-2:#5C4030;
+      --accent:#FF7FA3;
+      --accent-ink:#3B0619;
+      --mint:#5CD6FF;
+      --mint-ink:#00202B;
+      --ink:#F7ECE4;
+      --ink-soft:#CBB5A7;
+      --shadow-dark: rgba(0,0,0,0.55);
+      --shadow-light: rgba(255,255,255,0.06);
+      --shadow-dark-strong: rgba(0,0,0,0.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#241C18;
+    --surface:#4A3226;
+    --surface-2:#5C4030;
+    --accent:#FF7FA3;
+    --accent-ink:#3B0619;
+    --mint:#5CD6FF;
+    --mint-ink:#00202B;
+    --ink:#F7ECE4;
+    --ink-soft:#CBB5A7;
+    --shadow-dark: rgba(0,0,0,0.55);
+    --shadow-light: rgba(255,255,255,0.06);
+    --shadow-dark-strong: rgba(0,0,0,0.7);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    transition:background .3s ease, color .3s ease;
+  }
+  h1,h2,h3{
+    font-family:'Baloo 2', 'Work Sans', system-ui, sans-serif;
+    margin:0;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem;}
+  section{padding:5.5rem 0;}
+  @media (max-width:700px){ section{padding:3.5rem 0;} }
+
+  /* ---------- clay primitives ---------- */
+  .clay{
+    background:var(--surface);
+    border-radius:32px;
+    box-shadow:
+      10px 10px 22px var(--shadow-dark),
+      -8px -8px 20px var(--shadow-light);
+  }
+  .clay-inset{
+    background:var(--surface-2);
+    border-radius:24px;
+    box-shadow:
+      inset 6px 6px 14px var(--shadow-dark),
+      inset -6px -6px 14px var(--shadow-light);
+  }
+  .clay-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    padding:.9rem 1.7rem;
+    border-radius:20px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    color:var(--accent-ink);
+    background:var(--accent);
+    box-shadow:
+      7px 7px 16px var(--shadow-dark),
+      -6px -6px 14px var(--shadow-light);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .clay-btn.secondary{
+    background:var(--surface-2);
+    color:var(--ink);
+  }
+  .clay-btn:active{
+    transform:scale(.95);
+    box-shadow:
+      inset 5px 5px 10px var(--shadow-dark-strong),
+      inset -5px -5px 10px var(--shadow-light);
+  }
+  .pill{
+    display:inline-block;
+    font-size:.92rem;
+    font-weight:500;
+    padding:.55rem 1.15rem;
+    border-radius:16px;
+    background:var(--surface-2);
+    box-shadow:
+      4px 4px 10px var(--shadow-dark),
+      -4px -4px 10px var(--shadow-light);
+  }
+  .pill.mint{background:var(--mint); color:var(--mint-ink);}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--shadow-dark);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem 1.5rem;
+  }
+  .logo{
+    display:flex; align-items:center; gap:.65rem;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1.15rem;
+    text-decoration:none; color:var(--ink);
+  }
+  .logo-mark{
+    width:38px;height:38px;border-radius:14px;
+    background:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent-ink); font-weight:700; font-size:.95rem;
+    box-shadow:4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+  }
+  .nav-links{display:flex; gap:2rem; list-style:none; margin:0; padding:0;}
+  .nav-links a{text-decoration:none; font-weight:500; color:var(--ink-soft); font-size:.98rem;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:.4rem;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px;}
+  @media (max-width:760px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--bg);
+      flex-direction:column; gap:0;
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+      border-bottom:1px solid var(--shadow-dark);
+    }
+    .nav-links.open{max-height:260px;}
+    .nav-links li{padding:.9rem 1.5rem;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; overflow:hidden; padding-top:4.5rem;}
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:center;
+  }
+  @media (max-width:820px){ .hero .wrap{grid-template-columns:1fr;} }
+  .eyebrow-free{color:var(--ink-soft); font-size:1.05rem; margin-bottom:.9rem;}
+  .hero h1{font-size:clamp(2.3rem, 5vw, 3.4rem); font-weight:700;}
+  .hero p.lead{font-size:1.15rem; color:var(--ink-soft); max-width:38ch; margin:1.2rem 0 2rem;}
+  .hero-ctas{display:flex; gap:1rem; flex-wrap:wrap;}
+
+  .blob-stage{position:relative; height:340px;}
+  .blob-stage svg{position:absolute; inset:0; width:100%; height:100%;}
+  .blob-float{animation:float 7s ease-in-out infinite;}
+  .blob-float-slow{animation:float 9s ease-in-out infinite; animation-delay:-3s;}
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-14px) rotate(4deg);}
+  }
+  .avatar-tile{
+    position:absolute; inset:0; margin:auto; width:150px; height:150px;
+    border-radius:44px; display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:2.4rem; color:var(--ink);
+    overflow:hidden;
+  }
+  .avatar-img{width:100%; height:100%; object-fit:cover; display:block;}
+  .avatar-fallback{display:none; width:100%; height:100%; align-items:center; justify-content:center;}
+  @media (prefers-reduced-motion: reduce){
+    .blob-float, .blob-float-slow{animation:none;}
+  }
+
+  /* ---------- section heads ---------- */
+  .section-head{margin-bottom:2.5rem; max-width:52ch;}
+  .section-head h2{font-size:clamp(1.7rem, 3.5vw, 2.2rem);}
+  .section-head p{color:var(--ink-soft); margin-top:.6rem;}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:.8fr 1.2fr; gap:2.5rem; align-items:center;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-card{padding:2.5rem; }
+  .about-photo{
+    width:100%; aspect-ratio:1/1; border-radius:36px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:3rem; color:var(--ink);
+    overflow:hidden;
+  }
+  .fact-row{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem;}
+
+  /* ---------- skills ---------- */
+  .skills-cols{display:grid; grid-template-columns:1fr 1fr; gap:2rem;}
+  @media (max-width:700px){ .skills-cols{grid-template-columns:1fr;} }
+  .skill-card{padding:2rem;}
+  .skill-card h3{font-size:1.15rem; margin-bottom:1.1rem; font-weight:600;}
+  .skill-tags{display:flex; flex-wrap:wrap; gap:.6rem;}
+
+  /* ---------- journey timeline ---------- */
+  .timeline{position:relative; padding-left:2.2rem;}
+  .timeline::before{
+    content:"";position:absolute; left:9px; top:6px; bottom:6px; width:3px;
+    background:var(--surface-2); border-radius:3px;
+  }
+  .t-item{position:relative; padding-bottom:2.4rem;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-dot{
+    position:absolute; left:-2.2rem; top:2px; width:20px; height:20px; border-radius:50%;
+    background:var(--accent);
+    box-shadow:3px 3px 8px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
+  }
+  .t-item h3{font-size:1.1rem; font-weight:600; margin-bottom:.35rem;}
+  .t-item p{color:var(--ink-soft); margin:0; max-width:55ch;}
+  .t-tag{color:var(--ink-soft); font-size:.9rem; margin-bottom:.3rem; display:block;}
+
+  /* ---------- education ---------- */
+  .edu-card{padding:2.5rem; display:flex; gap:1.5rem; flex-wrap:wrap; align-items:flex-start; justify-content:space-between;}
+  .edu-info h3{font-size:1.3rem; margin-bottom:.3rem;}
+  .edu-info p{color:var(--ink-soft); margin:.2rem 0;}
+  .edu-badges{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;}
+
+  /* ---------- contact ---------- */
+  .contact-card{padding:3rem; text-align:center;}
+  .contact-card h2{font-size:clamp(1.7rem,3.5vw,2.3rem); margin-bottom:.7rem;}
+  .contact-card p{color:var(--ink-soft); max-width:44ch; margin:0 auto 2rem;}
+  .contact-tiles{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.2rem; text-align:left;}
+  @media (max-width:700px){ .contact-tiles{grid-template-columns:1fr;} }
+  .contact-tile{padding:1.4rem;}
+  .contact-tile span.label{display:block; font-size:.85rem; color:var(--ink-soft); margin-bottom:.35rem;}
+  .contact-tile a, .contact-tile span.value{font-weight:600; text-decoration:none; word-break:break-word;}
+  .placeholder-note{margin-top:2.2rem; font-size:.88rem; color:var(--ink-soft);}
+
+  footer{padding:2.5rem 0; text-align:center; color:var(--ink-soft); font-size:.9rem;}
+
+  /* ---------- scramble text ---------- */
+  .scramble{color:var(--ink); }
+  .scramble-char{color:var(--accent);}
+
+  /* ---------- theme toggle ---------- */
+  .theme-toggle{
+    width:40px; height:40px; border-radius:14px; border:none; cursor:pointer;
+    background:var(--surface-2); font-size:1.05rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+    transition:transform .15s ease;
+  }
+  .theme-toggle:active{
+    transform:scale(.92);
+    box-shadow:inset 3px 3px 8px var(--shadow-dark-strong), inset -3px -3px 8px var(--shadow-light);
+  }
+  .nav-right{display:flex; align-items:center; gap:.9rem;}
+
+  /* ---------- copy button ---------- */
+  .contact-tile .value-row{display:flex; align-items:center; justify-content:space-between; gap:.6rem;}
+  .copy-btn{
+    flex:none; width:32px; height:32px; border-radius:11px; border:none; cursor:pointer;
+    background:var(--surface); font-size:.85rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:3px 3px 8px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
+    transition:transform .15s ease;
+  }
+  .copy-btn:active{
+    transform:scale(.9);
+    box-shadow:inset 3px 3px 6px var(--shadow-dark-strong), inset -3px -3px 6px var(--shadow-light);
+  }
+
+  /* ---------- Lumi chat widget ---------- */
+  .lumi-widget{position:fixed; right:20px; bottom:20px; z-index:60;}
+  .lumi-toggle{
+    width:64px; height:64px; border-radius:26px; border:none; cursor:pointer;
+    background:var(--accent); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center; font-size:1.7rem;
+    box-shadow:8px 8px 18px var(--shadow-dark), -6px -6px 16px var(--shadow-light);
+    animation: lumi-bounce 3.4s ease-in-out infinite;
+    transition:transform .15s ease;
+  }
+  .lumi-toggle:active{transform:scale(.92);}
+  @keyframes lumi-bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+  }
+  @media (prefers-reduced-motion: reduce){ .lumi-toggle{animation:none;} }
+  .lumi-panel{
+    position:absolute; right:0; bottom:78px; width:320px; max-width:calc(100vw - 2.5rem);
+    background:var(--bg); border-radius:28px;
+    box-shadow:12px 12px 28px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+    display:flex; flex-direction:column; overflow:hidden;
+    max-height:70vh;
+    transform-origin:bottom right;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.85) translateY(14px);
+    pointer-events:none;
+    transition:opacity .22s ease, transform .3s cubic-bezier(.34,1.56,.64,1), visibility 0s linear .25s;
+  }
+  .lumi-panel.is-open{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1) translateY(0);
+    pointer-events:auto;
+    transition:opacity .22s ease, transform .3s cubic-bezier(.34,1.56,.64,1), visibility 0s linear 0s;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .lumi-panel{transition:opacity .01s linear, visibility 0s linear;}
+  }
+  .lumi-icon{
+    display:inline-block;
+    transition:transform .16s ease, opacity .16s ease;
+  }
+  .lumi-widget.is-open .lumi-toggle{animation:none;}
+  .lumi-header{
+    display:flex; align-items:center; gap:.8rem; padding:1.1rem 1.2rem;
+    background:var(--surface);
+  }
+  .lumi-avatar{font-size:1.6rem;}
+  .lumi-header strong{font-family:'Baloo 2',sans-serif; font-size:1.05rem; display:block;}
+  .lumi-header p{margin:0; font-size:.8rem; color:var(--ink-soft);}
+  .lumi-close{
+    margin-left:auto; background:none; border:none; cursor:pointer; font-size:1rem; color:var(--ink-soft);
+    width:28px; height:28px; border-radius:10px;
+  }
+  .lumi-close:hover{background:var(--surface-2);}
+  .lumi-messages{
+    flex:1; overflow-y:auto; padding:1rem 1.1rem; display:flex; flex-direction:column; gap:.6rem;
+    min-height:180px;
+  }
+  .lumi-msg{
+    max-width:82%; padding:.65rem .9rem; border-radius:18px; font-size:.92rem; line-height:1.45;
+  }
+  .lumi-msg-bot{ align-self:flex-start; background:var(--surface-2); border-bottom-left-radius:6px; }
+  .lumi-msg-user{ align-self:flex-end; background:var(--accent); color:var(--accent-ink); border-bottom-right-radius:6px; }
+  .lumi-chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:0 1.1rem .8rem;}
+  .lumi-chip{
+    border:none; cursor:pointer; font-size:.8rem; padding:.45rem .8rem; border-radius:14px;
+    background:var(--surface-2); color:var(--ink); font-family:inherit;
+  }
+  .lumi-form{display:flex; gap:.6rem; padding:.9rem 1.1rem; border-top:1px solid var(--shadow-dark);}
+  .lumi-input{
+    flex:1; border:none; border-radius:16px; padding:.65rem .9rem; font-size:.9rem;
+    background:var(--surface-2); color:var(--ink); font-family:inherit;
+  }
+  .lumi-input:focus{outline:2px solid var(--accent);}
+  .lumi-send{
+    width:38px; height:38px; border-radius:14px; border:none; cursor:pointer; flex:none;
+    background:var(--accent); color:var(--accent-ink); font-size:1rem;
+    box-shadow:3px 3px 8px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
+  }
+  .lumi-send:active{transform:scale(.92);}
+
+  /* ---------- intro overlay ---------- */
+  body.intro-active{overflow:hidden;}
+  .intro-overlay{
+    position:fixed; inset:0; z-index:100;
+    background:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity .6s ease;
+  }
+  .intro-mark{
+    font-size:4.5rem;
+    line-height:1;
+    animation:intro-drop 1.4s cubic-bezier(.22,1,.36,1) forwards;
+    will-change:transform, opacity;
+  }
+  @keyframes intro-drop{
+    0%{ transform:translateY(-220px) rotate(-140deg) scale(.5); opacity:0; }
+    45%{ opacity:1; }
+    78%{ transform:translateY(8px) rotate(380deg) scale(1.12); }
+    100%{ transform:translateY(0) rotate(360deg) scale(1); }
+  }
+  .intro-overlay.intro-done{ opacity:0; pointer-events:none; }
+  @media (prefers-reduced-motion: reduce){
+    .intro-overlay{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="intro-overlay" class="intro-overlay" aria-hidden="true">
+  <div class="intro-mark">🎀</div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-mark">LT</span>
+      Lumansi
+    </a>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow-free">First-year CSE (AI) student · Mumbai</p>
+        <h1>Hi, I'm Lumansi Tembhare.</h1>
+        <p class="lead">I'm just getting started in tech — right now I'm <span id="scramble-text" class="scramble">building my foundation</span>.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="clay-btn">Say hello</a>
+          <a href="#about" class="clay-btn secondary">More about me</a>
+        </div>
+      </div>
+      <div class="blob-stage" aria-hidden="true">
+        <svg viewBox="0 0 220 220" class="blob-float-slow">
+          <path fill="var(--surface-2)" d="M60,-52.8C75.6,-40.9,84.1,-19.1,82.6,1.6C81.1,22.3,69.6,41.9,53.6,54.8C37.6,67.6,17.1,73.6,-3.8,77.9C-24.6,82.2,-49.2,84.7,-63.9,73.4C-78.5,62.1,-83.3,37,-81.6,14.7C-79.9,-7.6,-71.8,-27.1,-58.9,-40.1C-45.9,-53.1,-28.1,-59.5,-8.6,-63C10.9,-66.5,42.4,-64.7,60,-52.8Z" transform="translate(110 110)"/>
+        </svg>
+        <svg viewBox="0 0 220 220" class="blob-float">
+          <path fill="var(--accent)" opacity="0.85" d="M47.3,-58.3C60.5,-49.6,69.6,-33.7,72.6,-17.1C75.6,-0.5,72.6,16.8,63.9,30.9C55.3,45,40.9,55.9,24.7,62.7C8.5,69.5,-9.5,72.2,-25.9,67.5C-42.3,62.8,-57.1,50.7,-65.4,35.2C-73.7,19.7,-75.5,0.8,-70.9,-15.8C-66.3,-32.4,-55.3,-46.7,-41.2,-55.4C-27.1,-64.1,-9.9,-67.2,5.9,-74.2C21.6,-81.2,43.3,-92,47.3,-58.3Z" transform="translate(110 110)"/>
+        </svg>
+        <div class="avatar-tile clay">
+          <img src="rim.jpg" alt="Lumansi Tembhare" class="avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="avatar-fallback">LT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo clay">
+          <img src="rim.jpg" alt="Lumansi Tembhare" class="avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="avatar-fallback">LT</span>
+        </div>
+        <div class="clay about-card">
+          <p>I'm a first-year Computer Science (AI) student at Vedam School of Technology in Mumbai, under Ajeenkya D Y Patil University. I didn't grow up around computers or coding — this is a fresh start for me, and I'm building my foundation from the ground up.</p>
+          <p>Right now I'm getting comfortable with the basics — HTML and Python — and slowly finding my footing in web development and programming. Outside of coursework, I'm part of the Cultural Club and the Entrepreneurship Club on campus, trying a bit of everything before I decide what to focus on.</p>
+          <div class="fact-row">
+            <span class="pill">Mumbai</span>
+            <span class="pill">Vedam School of Technology</span>
+            <span class="pill mint">Year 1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Still early days, so this list is short on purpose — it'll grow.</p>
+      </div>
+      <div class="skills-cols">
+        <div class="clay skill-card">
+          <h3>Comfortable with</h3>
+          <div class="skill-tags">
+            <span class="pill">HTML</span>
+            <span class="pill">Python</span>
+          </div>
+        </div>
+        <div class="clay skill-card">
+          <h3>Exploring next</h3>
+          <div class="skill-tags">
+            <span class="pill mint">Web development</span>
+            <span class="pill mint">Programming fundamentals</span>
+            <span class="pill mint">AI basics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Where I'm headed</h2>
+        <p>A quick look at how this year has gone so far.</p>
+      </div>
+      <div class="timeline">
+        <div class="t-item">
+          <span class="t-dot"></span>
+          <span class="t-tag">2026</span>
+          <h3>Started my B.Tech</h3>
+          <p>Began Computer Science (AI) at Vedam School of Technology, Mumbai.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-dot"></span>
+          <span class="t-tag">Now</span>
+          <h3>Learning the basics</h3>
+          <p>Working through HTML and Python, and getting a feel for how web development actually works.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-dot"></span>
+          <span class="t-tag">Next</span>
+          <h3>First real projects</h3>
+          <p>This space is reserved for what I build next — check back soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Education</h2>
+      </div>
+      <div class="clay edu-card">
+        <div class="edu-info">
+          <h3>Vedam School of Technology</h3>
+          <p>B.Tech, Computer Science (AI) — Ajeenkya D Y Patil University</p>
+          <p>Aug 2026 – Aug 2030</p>
+          <div class="edu-badges">
+            <span class="pill">Cultural Club</span>
+            <span class="pill">Entrepreneurship Club</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="clay contact-card">
+        <h2>Let's talk</h2>
+        <p>Open to connecting with fellow students, mentors, or anyone happy to chat about getting started in tech.</p>
+        <a href="mailto:lumansi@example.com" class="clay-btn">Send an email</a>
+        <div class="contact-tiles">
+          <div class="clay-inset contact-tile">
+            <span class="label">Email</span>
+            <div class="value-row">
+              <a href="mailto:lumansi@example.com" class="value" id="email-value">lumansi@example.com</a>
+              <button class="copy-btn" id="copy-email" type="button" aria-label="Copy email address" title="Copy email">📋</button>
+            </div>
+          </div>
+          <div class="clay-inset contact-tile">
+            <span class="label">Phone</span>
+            <span class="value">+91 8433713105</span>
+          </div>
+          <div class="clay-inset contact-tile">
+            <span class="label">LinkedIn / GitHub</span>
+            <a href="#" class="value">add link here</a>
+          </div>
+        </div>
+        <p class="placeholder-note">Email, phone, and social links above are placeholders — swap them for the real ones.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Lumansi Tembhare · Mumbai · Built while learning, one line at a time.
+</footer>
+
+<div id="lumi-widget" class="lumi-widget">
+  <button id="lumi-toggle" class="lumi-toggle" aria-label="Chat with Lumi about Lumansi" aria-expanded="false">
+    <span class="lumi-icon">🌱</span>
+  </button>
+  <div id="lumi-panel" class="lumi-panel clay">
+    <div class="lumi-header">
+      <span class="lumi-avatar">🌱</span>
+      <div>
+        <strong>Lumi</strong>
+        <p>Ask me about Lumansi</p>
+      </div>
+      <button id="lumi-close" class="lumi-close" aria-label="Close chat">✕</button>
+    </div>
+    <div id="lumi-messages" class="lumi-messages"></div>
+    <div id="lumi-chips" class="lumi-chips"></div>
+    <form id="lumi-form" class="lumi-form">
+      <input id="lumi-input" class="lumi-input" type="text" placeholder="Ask a question…" autocomplete="off" maxlength="300">
+      <button type="submit" class="lumi-send" aria-label="Send">➤</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ---------- intro overlay ----------
+  (function(){
+    var overlay = document.getElementById('intro-overlay');
+    if(!overlay) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion){
+      overlay.remove();
+      return;
+    }
+    document.body.classList.add('intro-active');
+    setTimeout(function(){
+      overlay.classList.add('intro-done');
+      document.body.classList.remove('intro-active');
+      setTimeout(function(){ overlay.remove(); }, 650);
+    }, 1500);
+  })();
+
+  // ---------- live text-scramble rotator ----------
+  (function(){
+    var el = document.getElementById('scramble-text');
+    if(!el) return;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var phrases = [
+      'building my foundation',
+      'learning HTML & Python',
+      'exploring AI, slowly',
+      'finding my footing in web dev'
+    ];
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+    function Scramble(node){
+      this.el = node;
+      this.frame = 0;
+      this.frameRequest = null;
+      this.queue = [];
+      this.resolve = null;
+    }
+    Scramble.prototype.setText = function(newText){
+      var oldText = this.el.textContent;
+      var length = Math.max(oldText.length, newText.length);
+      var self = this;
+      var promise = new Promise(function(res){ self.resolve = res; });
+      this.queue = [];
+      for (var i = 0; i < length; i++){
+        var from = oldText[i] || '';
+        var to = newText[i] || '';
+        var start = Math.floor(Math.random() * 20);
+        var end = start + Math.floor(Math.random() * 20);
+        this.queue.push({ from: from, to: to, start: start, end: end, char: null });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    };
+    Scramble.prototype.update = function(){
+      var output = '';
+      var complete = 0;
+      for (var i = 0, n = this.queue.length; i < n; i++){
+        var item = this.queue[i];
+        if (this.frame >= item.end){
+          complete++;
+          output += item.to;
+        } else if (this.frame >= item.start){
+          if (!item.char || Math.random() < 0.28){
+            item.char = chars[Math.floor(Math.random() * chars.length)];
+          }
+          output += '<span class="scramble-char">' + item.char + '</span>';
+        } else {
+          output += item.from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length){
+        this.resolve();
+      } else {
+        this.frame++;
+        this.frameRequest = requestAnimationFrame(this.update.bind(this));
+      }
+    };
+
+    if (reduceMotion){
+      el.textContent = phrases[0];
+    } else {
+      var fx = new Scramble(el);
+      var i = 0;
+      (function next(){
+        i = (i + 1) % phrases.length;
+        fx.setText(phrases[i]).then(function(){
+          setTimeout(next, 2200);
+        });
+      })();
+    }
+  })();
+
+  // ---------- theme toggle ----------
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    if(!btn) return;
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function iconFor(theme){
+      var isDark = theme ? theme === 'dark' : prefersDark;
+      return isDark ? '☀️' : '🌙';
+    }
+    function applyTheme(theme){
+      if (theme === 'light' || theme === 'dark'){
+        root.setAttribute('data-theme', theme);
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      btn.textContent = iconFor(theme);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem('lumansi-theme'); } catch(e){}
+    applyTheme(saved);
+
+    btn.addEventListener('click', function(){
+      var current = root.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('lumansi-theme', next); } catch(e){}
+    });
+  })();
+
+  // ---------- copy email ----------
+  (function(){
+    var copyBtn = document.getElementById('copy-email');
+    var emailVal = document.getElementById('email-value');
+    if(!copyBtn || !emailVal) return;
+    copyBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      var text = emailVal.textContent.trim();
+      function showCopied(){
+        copyBtn.textContent = '✅';
+        setTimeout(function(){ copyBtn.textContent = '📋'; }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(showCopied).catch(function(){
+          window.location.href = 'mailto:' + text;
+        });
+      } else {
+        window.location.href = 'mailto:' + text;
+      }
+    });
+  })();
+  // ---------- Lumi chat widget ----------
+  (function(){
+    var widget = document.getElementById('lumi-widget');
+    var toggleBtn = document.getElementById('lumi-toggle');
+    var panel = document.getElementById('lumi-panel');
+    var closeBtn = document.getElementById('lumi-close');
+    var messagesEl = document.getElementById('lumi-messages');
+    var chipsEl = document.getElementById('lumi-chips');
+    var form = document.getElementById('lumi-form');
+    var input = document.getElementById('lumi-input');
+    if(!widget) return;
+
+    var RULES = 'You are "Lumi", a cheerful assistant embedded in Lumansi Tembhare\'s personal portfolio website. Answer visitor questions about Lumansi using ONLY the facts below. Speak about her in the third person. Keep answers short: 2 to 4 sentences. Warm, encouraging, a little playful tone; an occasional 🌱 emoji is fine, but do not overdo it. If asked something unrelated to Lumansi or her portfolio, politely say you are only able to answer questions about Lumansi. Never invent facts that are not listed below.\n\n' +
+      'Facts about Lumansi:\n' +
+      '- Full name: Lumansi Tembhare\n' +
+      '- First-year B.Tech Computer Science (AI) student at Vedam School of Technology, Mumbai, under Ajeenkya D Y Patil University — started August 2026\n' +
+      '- New to tech, with no coding background before starting this degree\n' +
+      '- Currently comfortable with: HTML, Python\n' +
+      '- Currently exploring: web development, programming fundamentals, AI basics\n' +
+      '- Involved in the Cultural Club and the Entrepreneurship Club on campus\n' +
+      '- No projects or awards yet — she is just getting started; first projects are coming soon\n' +
+      '- Best way to reach her: the contact section of this site (the email, phone, and social links there are placeholders until she adds her real ones)';
+
+    var FALLBACK_QA = [
+      { keys:['stud','course','degree','major','college','university','vedam'], a:"Lumansi is a first-year B.Tech Computer Science (AI) student at Vedam School of Technology in Mumbai, under Ajeenkya D Y Patil University. She started in August 2026. 🌱" },
+      { keys:['skill','python','html','code','coding','tech stack','know'], a:"She's currently comfortable with HTML and Python, and she's exploring web development, programming fundamentals, and the basics of AI." },
+      { keys:['project','portfolio','built','made'], a:"No projects yet — she's brand new to tech and just getting started! Her first real projects are on the way, so check back soon." },
+      { keys:['contact','email','phone','reach','linkedin','github','social'], a:"You can reach her through the contact section of this site — heads up, the email, phone, and social links there are placeholders for now." },
+      { keys:['where','from','live','location','city','mumbai'], a:"Lumansi is based in Mumbai." },
+      { keys:['club','activit','extracurricular'], a:"On campus, she's part of the Cultural Club and the Entrepreneurship Club." },
+      { keys:['background','experience','new','beginner'], a:"She's new to tech, with no coding background before starting her degree — this whole portfolio is part of her learning journey." },
+      { keys:['who','name'], a:"This is Lumansi Tembhare's portfolio! I'm Lumi, here to answer questions about her." }
+    ];
+    function fallbackAnswer(q){
+      var lower = q.toLowerCase();
+      for (var i=0;i<FALLBACK_QA.length;i++){
+        var item = FALLBACK_QA[i];
+        for (var j=0;j<item.keys.length;j++){
+          if (lower.indexOf(item.keys[j]) !== -1) return item.a;
+        }
+      }
+      return "I'm not sure about that one — try asking about her studies, skills, background, or how to reach her!";
+    }
+
+    var sample = null;
+    var samplePromise = (window.claude && window.claude.use) ? window.claude.use('sample') : Promise.resolve(null);
+    samplePromise.then(function(fn){ sample = fn; }).catch(function(){ sample = null; });
+
+    var turns = [];
+    var opened = false;
+    var CHIPS = ['What does she study?', 'What are her skills?', 'How do I reach her?'];
+    var toggleIcon = toggleBtn.querySelector('.lumi-icon');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setToggleIcon(isOpen){
+      if (reduceMotion){
+        toggleIcon.textContent = isOpen ? '✕' : '🌱';
+        return;
+      }
+      toggleIcon.style.transform = 'rotate(90deg) scale(.4)';
+      toggleIcon.style.opacity = '0';
+      setTimeout(function(){
+        toggleIcon.textContent = isOpen ? '✕' : '🌱';
+        toggleIcon.style.transform = 'rotate(0deg) scale(1)';
+        toggleIcon.style.opacity = '1';
+      }, 140);
+    }
+
+    function addMessage(role, text){
+      var bubble = document.createElement('div');
+      bubble.className = 'lumi-msg ' + (role === 'user' ? 'lumi-msg-user' : 'lumi-msg-bot');
+      bubble.textContent = text;
+      messagesEl.appendChild(bubble);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return bubble;
+    }
+    function renderChips(){
+      chipsEl.innerHTML = '';
+      CHIPS.forEach(function(q){
+        var chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'lumi-chip';
+        chip.textContent = q;
+        chip.addEventListener('click', function(){ sendQuestion(q); });
+        chipsEl.appendChild(chip);
+      });
+    }
+    function openPanel(){
+      panel.classList.add('is-open');
+      widget.classList.add('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      setToggleIcon(true);
+      if (!opened){
+        opened = true;
+        addMessage('bot', "Hi! I'm Lumi 🌱 — ask me anything about Lumansi.");
+        renderChips();
+      }
+      input.focus();
+    }
+    function closePanel(){
+      panel.classList.remove('is-open');
+      widget.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      setToggleIcon(false);
+    }
+    toggleBtn.addEventListener('click', function(){
+      if (!panel.classList.contains('is-open')) openPanel(); else closePanel();
+    });
+    closeBtn.addEventListener('click', closePanel);
+
+    var PERMANENT_CODES = ['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'];
+
+    function sendQuestion(q){
+      q = (q || '').trim();
+      if (!q) return;
+      addMessage('user', q);
+      input.value = '';
+      chipsEl.innerHTML = '';
+      var thinking = addMessage('bot', 'Thinking…');
+
+      if (sample){
+        turns.push({ role:'user', content:q });
+        sample([{ role:'user', content:RULES }].concat(turns), {
+          cache:false,
+          modelTier:'quick',
+          onText:function(e){ thinking.textContent = e.text; }
+        }).then(function(result){
+          thinking.textContent = result.text;
+          turns.push({ role:'assistant', content:result.text });
+        }).catch(function(e){
+          if (PERMANENT_CODES.indexOf(e.code) !== -1){ sample = null; }
+          turns.pop();
+          thinking.textContent = fallbackAnswer(q);
+        });
+      } else {
+        setTimeout(function(){ thinking.textContent = fallbackAnswer(q); }, 350);
+      }
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      sendQuestion(input.value);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heartbeat</title>
+<style>
+  :root { --beat: 1.2s; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at center, #2a0a1a 0%, #0d0308 70%);
+    overflow: hidden;
+  }
+  .stage { position: relative; width: 320px; height: 320px; display: grid; place-items: center; }
+
+  .heart {
+    width: 220px; height: 220px; object-fit: contain;
+    position: relative; z-index: 2;
+    transform-origin: center;
+    animation: heartbeat var(--beat) ease-in-out infinite, glow var(--beat) ease-in-out infinite;
+  }
+  .heart-fallback { display: none; width: 220px; height: 220px; z-index: 2; position: relative;
+    animation: heartbeat var(--beat) ease-in-out infinite, glow var(--beat) ease-in-out infinite; }
+
+  /* lub-dub pump */
+  @keyframes heartbeat {
+    0%   { transform: scale(1); }
+    14%  { transform: scale(1.28); }
+    28%  { transform: scale(1); }
+    42%  { transform: scale(1.18); }
+    70%  { transform: scale(1); }
+    100% { transform: scale(1); }
+  }
+  @keyframes glow {
+    0%, 70%, 100% { filter: drop-shadow(0 0 10px rgba(255,80,140,.35)); }
+    14%           { filter: drop-shadow(0 0 35px rgba(255,80,140,.95)); }
+    42%           { filter: drop-shadow(0 0 25px rgba(255,80,140,.7)); }
+  }
+
+  /* expanding pulse rings */
+  .ring {
+    position: absolute; inset: 50% auto auto 50%;
+    width: 200px; height: 200px; margin: -100px 0 0 -100px;
+    border: 2px solid rgba(255,90,150,.6); border-radius: 50%;
+    opacity: 0; z-index: 1;
+    animation: ring var(--beat) ease-out infinite;
+  }
+  .ring.r2 { animation-delay: .25s; }
+  @keyframes ring {
+    0%   { transform: scale(.6); opacity: 0; }
+    14%  { opacity: .8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* ECG line */
+  .ecg { position: absolute; bottom: 8%; width: min(520px, 90vw); height: 80px; opacity: .85; }
+  .ecg path {
+    fill: none; stroke: #ff5a96; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 600; stroke-dashoffset: 600;
+    animation: draw calc(var(--beat) * 2) linear infinite;
+    filter: drop-shadow(0 0 4px #ff5a96);
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: 4s !important; } }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <span class="ring"></span>
+    <span class="ring r2"></span>
+
+    <img class="heart" id="heart" alt="Beating heart"
+         src="https://png.pngtree.com/png-vector/20240716/ourmid/pngtree-heart-pink-love-emoji-png-image_13125865.png">
+
+    <!-- fallback if the image can't load -->
+    <svg class="heart-fallback" id="fallback" viewBox="0 0 24 24">
+      <path fill="#ff5a96" d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.9 5 6.3 5c2 0 3.6 1.1 4.4 2.6h.6C12.1 6.1 13.7 5 15.7 5c3.4 0 5.3 3.6 3.9 6.8C19.5 16.4 12 21 12 21z"/>
+    </svg>
+  </div>
+
+  <svg class="ecg" viewBox="0 0 520 80" preserveAspectRatio="none">
+    <path d="M0 40 H180 L200 40 L215 10 L235 70 L250 40 H290 L305 32 L320 40 H520"/>
+  </svg>
+
+<script>
+  document.getElementById('heart').addEventListener('error', function () {
+    this.style.display = 'none';
+    document.getElementById('fallback').style.display = 'block';
+  });
+</script>
+</body>
+</html>

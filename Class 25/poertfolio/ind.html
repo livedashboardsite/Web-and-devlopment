@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+ 
+
+        #logo{
+            height: 50px;
+        }
+        .buttons{
+            display: flex;
+            gap: 40px;
+        }
+        #lets{
+            width: 100px;
+            height: 32px;
+            background-color: antiquewhite;
+            border-radius: 22%;
+            border: 1px solid black;
+        }
+        .home{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .talk{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #body{
+            display: flex;
+            height: 500px;
+            width: 100px;
+            background-color: darkgreen;
+        }
+        #info{
+            background-color: azure;
+            height: 470px;
+            width: 50%;
+        }
+        #anime{
+            background-color:antiquewhite;
+            height:470px;
+            width:50%;
+            position:relative;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #bg{
+            height: 350px;
+            width: 70%;
+            background-color: rgb(202, 144, 35);
+            position:absolute;
+            border-radius: 60%/90% 54% 60% 42%;
+            animation: circle 2s linear infinite;
+        }
+  
+        #front{
+        height:300px;
+        width:50%;
+        background-color: rgb(233, 133, 61);
+        border-radius:40px;
+        position:relative;
+        top:-30px;
+        left:-20px;
+
+        animation:anime 2s linear infinite;
+        box-shadow: 10px 10px 20px rgb(43, 42, 42);
+        }
+  
+        #avatar{
+            position: absolute;
+            top: 20px;
+            left: 35px;
+            border-radius: 50%;
+            height: 170px;
+        }
+        #name{
+            position: absolute;
+            bottom: 60px;
+            left: 15px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .heading{
+            font-size: 60px;
+            color: tomato;
+        }
+        #info{
+            padding: 40px;
+        }
+        #frontend{
+            color: burlywood;
+            font-family: "Dancing Script", cursive;
+
+        }
+        #disc{
+            color: sandybrown;
+        }
+      
+        #contact{
+            border-radius: 20px;
+            border: 1px solid;
+            height:40px;
+            width:180px;
+            background-color: rgb(255, 254, 254);
+            color:rgb(35, 37, 38)
+        }
+    </style>
+</head>
+<body>
+    <div id="navparent">
+        <div class="logo">
+\        </div>
+        <div class="button">
+            <div class="home">HOME</div>
+            <div class="home">ABOUT</div>
+            <div class="home">WORK</div>
+            <div class="home">SKILLS</div>
+            <div class="home">CONTACTS</div>
+        </div>
+        <div class="talk">
+            <button id="lets">LET'S TALK</button>
+        </div>
+        <div id="body">
+        <div id="info">
+            <h1 class=heading>CREATIVE</h1>
+            <h1 id="frontend" class="heading">FRONTEND</h1>
+            <h1 class="heading">DEVELOPER.</h1>
+            <br>
+            <p id="disc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, itaque.</p>
+            <br>
+            <button id="explore">EXPLORE MY WORK</button>
+            <button id="contact">CONTACT</button>
+        </div>
+        <div id="anime">
+            <div id="bg"></div>
+            <div id="front">
+                <img id="avatar" src="./male-avatar-profile-icon-round-african-american-vector-18307252.jpg" alt="">
+                <h1 id="name">LUMANSI TEMBHARE</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

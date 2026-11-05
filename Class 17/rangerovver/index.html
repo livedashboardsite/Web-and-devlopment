@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Range Rover | Explore Luxury SUVs and 4x4 Vehicles</title>
+<style>
+:root{--ink:#000;--paper:#fff;--grey:#6b6b6b;--line:#e3e3e3;--img:"?wid=2000&fmt=jpeg&qlt=85"}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* header */
+.promo{background:#000;color:#fff;text-align:center;font-size:12px;padding:9px 12px;letter-spacing:.04em}
+.promo a{text-decoration:underline;margin-left:6px}
+header{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px;padding:0 32px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header nav,header .right{display:flex;gap:28px;font-size:12px;letter-spacing:.12em;font-weight:500}
+header .right{justify-content:flex-end;align-items:center}
+.logo{font-family:Georgia,"Times New Roman",serif;font-size:19px;letter-spacing:.34em;font-weight:400;text-align:center}
+header a:hover{text-decoration:underline;text-underline-offset:6px}
+.shop{border:1px solid #000;padding:9px 18px}
+.shop:hover{background:#000;color:#fff;text-decoration:none!important}
+
+/* buttons */
+.btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;font-size:12px;letter-spacing:.14em;font-weight:500;padding:15px 30px;border:1px solid currentColor;transition:.2s}
+.btn.fill{background:#fff;color:#000;border-color:#fff}
+.btn.fill:hover{background:transparent;color:#fff}
+.btn.ghost:hover{background:#fff;color:#000}
+.dark .btn.fill{background:#000;color:#fff;border-color:#000}
+.dark .btn.fill:hover{background:transparent;color:#000}
+.dark .btn.ghost:hover{background:#000;color:#fff}
+
+/* full-bleed panels */
+.panel{position:relative;min-height:calc(100vh - 100px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:0 24px 72px;color:#fff;background:#2a2a2a center/cover no-repeat}
+.panel::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0) 55%)}
+.panel>*{position:relative}
+.panel.top{justify-content:flex-start;padding-top:80px}
+.panel.top::before{background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,0) 50%)}
+.panel.light{color:#000}
+.panel.light::before{background:linear-gradient(to bottom,rgba(255,255,255,.55),rgba(255,255,255,0) 50%)}
+.panel h1,.panel h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:.14em;font-size:clamp(28px,4vw,52px);margin-bottom:12px}
+.panel .price{font-size:12px;letter-spacing:.14em;margin-bottom:8px;opacity:.9}
+.panel p{font-size:17px;margin-bottom:28px;max-width:560px;line-height:1.5}
+.panel .sub{font-size:13px;letter-spacing:.2em;margin-bottom:26px}
+
+/* dots */
+.dots{position:absolute!important;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+.dots i{width:7px;height:7px;border-radius:50%;border:1px solid #fff;display:block}
+.dots i:first-child{background:#fff}
+
+/* split feature rows */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:620px;background:#fff}
+.split.rev .txt{order:2}
+.split .pic{background:#ddd center/cover no-repeat}
+.split .txt{display:flex;flex-direction:column;justify-content:center;padding:72px clamp(32px,7vw,110px)}
+.split h2,.sec h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:.12em;font-size:clamp(26px,3vw,40px);margin-bottom:18px}
+.split p{font-size:17px;line-height:1.6;color:#333;margin-bottom:32px;max-width:440px}
+.split .btn{align-self:flex-start}
+
+/* unveil */
+.sec{padding:96px 32px;text-align:center}
+.sec>p{color:var(--grey);margin-bottom:56px;font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1280px;margin:0 auto;text-align:left}
+.card .im{aspect-ratio:4/3;background:#ddd center/cover no-repeat;margin-bottom:22px}
+.card h3{font-size:13px;letter-spacing:.18em;font-weight:500;margin-bottom:8px}
+.card p{color:var(--grey);font-size:15px;margin-bottom:16px}
+.card a{font-size:12px;letter-spacing:.14em;font-weight:500;border-bottom:1px solid #000;padding-bottom:3px}
+
+/* warrant + subscribe */
+.warrant{background:#f4f4f2;padding:88px 24px;text-align:center}
+.warrant h2{font-family:Georgia,serif;font-weight:400;letter-spacing:.2em;font-size:22px;margin-bottom:20px}
+.warrant p{max-width:720px;margin:0 auto;line-height:1.7;color:#444;font-size:15px}
+.inform{background:#000;color:#fff;padding:72px 24px;text-align:center}
+.inform h2{font-family:Georgia,serif;font-weight:400;letter-spacing:.2em;font-size:24px;margin-bottom:10px}
+.inform p{color:#bbb;margin-bottom:28px}
+
+/* footer */
+footer{background:#111;color:#cfcfcf;padding:64px 32px 28px;font-size:13px}
+.cols{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;max-width:1280px;margin:0 auto 48px}
+.cols h4{color:#fff;font-size:12px;letter-spacing:.16em;margin-bottom:18px;font-weight:500}
+.cols li{list-style:none;margin-bottom:11px}
+.cols a:hover{color:#fff;text-decoration:underline}
+.legal{max-width:1280px;margin:0 auto;border-top:1px solid #333;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#888}
+.legal nav{display:flex;gap:20px}
+.fine{max-width:1280px;margin:20px auto 0;font-size:11px;line-height:1.6;color:#777}
+
+/* responsive */
+@media(max-width:900px){
+ header{grid-template-columns:auto 1fr;padding:0 18px}
+ header nav,header .right a:not(.shop){display:none}
+ .logo{text-align:left;font-size:16px;order:-1}
+ .split,.split.rev{grid-template-columns:1fr}
+ .split.rev .txt{order:0}
+ .split .pic{min-height:320px}
+ .cards{grid-template-columns:1fr}
+ .cols{grid-template-columns:1fr 1fr}
+ .dots{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="promo">Find your perfect Range Rover. <a href="#">Search in stock vehicles.</a></div>
+
+<header>
+  <nav><a href="#">VEHICLES</a><a href="#">OWNERS</a><a href="#">EXPLORE</a></nav>
+  <a class="logo" href="#">RANGE ROVER</a>
+  <div class="right"><a href="#">RETAILERS</a><a href="#">SEARCH</a><a class="shop" href="#">SHOP NOW</a></div>
+</header>
+
+<!-- hero -->
+<section class="panel top" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L46127GL_303105424_BEV_009_V3?wid=2000&fmt=jpeg&qlt=85')">
+  <h1>RANGE ROVER SPORT ELECTRIC</h1>
+  <p>Dynamic performance and Range Rover refinement. Now electric.</p>
+  <div class="btns"><a class="btn fill" href="#">BUILD YOUR OWN</a><a class="btn ghost" href="#">EXPLORE ELECTRIC</a></div>
+  <div class="dots"><i></i><i></i><i></i></div>
+</section>
+
+<!-- model panels -->
+<section class="panel" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L46027GL_303105263_069?wid=2000&fmt=jpeg&qlt=85')">
+  <h2>RANGE ROVER</h2><div class="price">Price from: ₹ 24 000 000*</div><p>Go anywhere, composed everywhere.</p>
+  <div class="btns"><a class="btn fill" href="#">EXPLORE</a><a class="btn ghost" href="#">BUILD YOUR OWN</a></div>
+</section>
+
+<section class="panel" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L461_23MY_003_GLHD_SANTORINI_BLACK?wid=2000&fmt=jpeg&qlt=85')">
+  <h2>RANGE ROVER SPORT</h2><div class="price">Price from: ₹ 14 300 000*</div><p>The most dynamic Range Rover Sport ever.</p>
+  <div class="btns"><a class="btn fill" href="#">EXPLORE</a><a class="btn ghost" href="#">BUILD YOUR OWN</a></div>
+</section>
+
+<section class="panel" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L56026GL_303103980_001_NAV?wid=2000&fmt=jpeg&qlt=85')">
+  <h2>RANGE ROVER VELAR</h2><div class="price">Price from: ₹ 8 850 000*</div><p>Desirable by design.</p>
+  <div class="btns"><a class="btn fill" href="#">EXPLORE</a><a class="btn ghost" href="#">BUILD YOUR OWN</a></div>
+</section>
+
+<section class="panel" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L55126GL_303103981_001?wid=2000&fmt=jpeg&qlt=85')">
+  <h2>RANGE ROVER EVOQUE</h2><div class="price">Price from: ₹ 6 486 000*</div><p>Captivating, sophisticated and charismatic.</p>
+  <div class="btns"><a class="btn fill" href="#">EXPLORE</a><a class="btn ghost" href="#">BUILD YOUR OWN</a></div>
+</section>
+
+<!-- Wimbledon -->
+<section class="panel" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L46025MY_303104898_SV_DX_Wimbledon_Montage_Ver_02?wid=2000&fmt=jpeg&qlt=85')">
+  <h2>THE CHAMPIONSHIPS, WIMBLEDON 2026</h2>
+  <p>Range Rover is proud to partner with The Championships, Wimbledon, bringing together our shared passion for refinement and sustainability.</p>
+  <div class="btns"><a class="btn fill" href="#">EXPLORE WIMBLEDON</a></div>
+</section>
+
+<!-- chapters / bespoke / sound -->
+<section class="split">
+  <div class="txt"><h2>RANGE ROVER CHAPTERS</h2><p>The story of the original luxury SUV.</p><a class="btn ghost" style="color:#000" href="#">EXPLORE</a></div>
+  <div class="pic" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L46125GL_303103154_075?wid=1400&fmt=jpeg&qlt=85')"></div>
+</section>
+<section class="split rev">
+  <div class="txt"><h2>BESPOKE</h2><p>We make it special. You make it unique.</p><a class="btn ghost" style="color:#000" href="#">EXPLORE</a></div>
+  <div class="pic" style="background-image:url('https://jlr.scene7.com/is/image/jlr/2025_02_28_NousJLR_DesignStudio1207?wid=1400&fmt=jpeg&qlt=85')"></div>
+</section>
+<section class="split">
+  <div class="txt"><h2>SOUND THAT MOVES YOU</h2><p>World-first SV Electrostatic Sound. Exclusive to Range Rover.</p><a class="btn ghost" style="color:#000" href="#">EXPLORE</a></div>
+  <div class="pic" style="background-image:url('https://jlr.scene7.com/is/image/jlr/L46027GL_303105263_122?wid=1400&fmt=jpeg&qlt=85')"></div>
+</section>
+
+<!-- unveil -->
+<section class="sec">
+  <h2>UNVEIL NEW PERSPECTIVES</h2>
+  <p>Continue your journey with us.</p>
+  <div class="cards">
+    <div class="card"><div class="im" style="background-image:url('https://jlr.scene7.com/is/image/jlr/09.33.28_UK_HOB_Brand?wid=900&fmt=jpeg&qlt=85')"></div><h3>TEST DRIVE</h3><p>At a time and location convenient to you.</p><a href="#">BOOK YOUR TEST DRIVE</a></div>
+    <div class="card"><div class="im" style="background-image:url('https://jlr.scene7.com/is/image/jlr/09.24.48_UK_HOB_Brand?wid=900&fmt=jpeg&qlt=85')"></div><h3>SHOP</h3><p>Personalise and order your Range Rover online.</p><a href="#">BUILD AND ORDER</a></div>
+    <div class="card"><div class="im" style="background-image:url('https://jlr.scene7.com/is/image/jlr/09.31.13_UK_HOB_Brand?wid=900&fmt=jpeg&qlt=85')"></div><h3>FINANCE</h3><p>Tailored finance options to suit you.</p><a href="#">EXPLORE FINANCE OPTIONS</a></div>
+  </div>
+</section>
+
+<section class="warrant">
+  <h2>ROYAL WARRANT</h2>
+  <p>We are proud to have been included in the initial grant of Royal Warrants by HM King Charles III in May 2024, as well as receiving a Royal Warrant from HM Queen Camilla in May 2025. This continues a proud history that extends to our first Warrant from HM King George VI in 1951.</p>
+</section>
+
+<section class="inform dark-on">
+  <h2>ALWAYS INFORMED</h2>
+  <p>Range Rover updates provided by its creators</p>
+  <a class="btn fill" href="#">SUBSCRIBE</a>
+</section>
+ww
+<footer>
+  <div class="cols">
+    <div><h4>VEHICLES</h4><ul><li><a href="#">Range Rover</a></li><li><a href="#">Range Rover Sport</a></li><li><a href="#">Range Rover Velar</a></li><li><a href="#">Range Rover Evoque</a></li><li><a href="#">Bespoke</a></li><li><a href="#">Book a test drive</a></li></ul></div>
+    <div><h4>OWNERSHIP</h4><ul><li><a href="#">Ownership services</a></li><li><a href="#">InControl</a></li><li><a href="#">Software updates</a></li><li><a href="#">Accessories</a></li></ul></div>
+    <div><h4>ABOUT US</h4><ul><li><a href="#">JLR</a></li><li><a href="#">Sustainability</a></li><li><a href="#">FAQs</a></li></ul></div>
+    <div><h4>OUR BRANDS</h4><ul><li><a href="#">Range Rover</a></li><li><a href="#">Defender</a></li><li><a href="#">Discovery</a></li><li><a href="#">Jaguar</a></li></ul></div>
+    <div><h4>JOIN THE CONVERSATION</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">Facebook</a></li><li><a href="#">X</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="legal">
+    <span>© JAGUAR LAND ROVER LIMITED 2026</span>
+    <nav><a href="#">Change market</a><a href="#">Terms &amp; conditions</a><a href="#">Contact us</a><a href="#">Cookies &amp; privacy</a></nav>
+  </div>
+  <p class="fine">*The prices mentioned are ex-showroom and are subject to change without notice. The ex-showroom price does not include any optional items and excludes Vehicle Registration Tax, Tax Collected at Source (TCS) and Insurance Premium. This page is a design replica for learning purposes and is not affiliated with Jaguar Land Rover.</p>
+</footer>
+
+</body>
+</html>

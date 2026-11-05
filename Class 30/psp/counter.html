@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+
+</head>
+<body>
+  <h1>Counter</h1>
+  <p>To make counter with two buttons Increase and Decrease, when clicked the counter should increase or decrease.</p>
+  <br>
+  <div id="counter">0</div>
+  <button id="increase">Increase</button>
+  <button id="decrease">Decrease</button>
+
+  <script>
+    const counter = document.getElementById('counter');
+    const increase = document.getElementById('increase');
+    const decrease = document.getElementById('decrease');
+
+    increase.addEventListener('click', () => {
+      counter.textContent = Number(counter.textContent) + 10;
+    });
+    decrease.addEventListener('click', () => {
+      counter.textContent = Number(counter.textContent) - 10;
+    });
+  </script>
+</body>
+</html>   

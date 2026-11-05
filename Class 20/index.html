@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Images Carousel</title>
+    <style>
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .track {
+            display: flex;
+            width: max-content;
+            animation: scroll 20s linear infinite ;
+        }
+
+        .track img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Moving Images Carousel</h1>
+
+    <div class="carousel">
+        <div class="track">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7zDMYnGheNT1l7pEW3R5N3Uf4--yCjRprCG9W5WQ58g&s=10" alt="">
+            <img src="https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+            <img src="https://img.magnific.com/free-photo/close-up-multicolored-butterfly_209690-388.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNw-pMuxs_9tMP0wGKjLkg_hcqIE4FBMWoXp9tHJhM37Sa2WYpT1Y_wsI&s=10" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvMFDtJFJLzEYY5bLQhfUwWBljfDu4l0qhnyOhkya1SOWltYgSZQ11eU&s=10" alt="">
+            <img src="https://i.pinimg.com/736x/60/a6/e2/60a6e2b0776d1d6735fce5ae7dc9b175.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2022/10/22/17/00/gull-7539615_1280.jpg" alt="">
+
+           
+        </div>
+    </div>
+</body>
+</html>

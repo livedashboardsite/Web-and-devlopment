@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechConf - Conference Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Tech<span>Conf</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Speakers</a>
+            <a href="#">Schedule</a>
+            <a href="#">Register</a>
+            <button class="register-btn-nav">Register Now</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <div class="eyebrow">Register Now</div>
+            <h1 class="page-title">Conference Registration</h1>
+            <p class="page-subtitle">Fill in the details below to secure your spot at Tech Conference 2026.</p>
+        </div>
+
+        <form>
+            <div class="form-grid">
+
+                <div class="form-card">
+                    <h2 class="section-title">Personal Information</h2>
+
+                    <div class="form-group">
+                        <label for="fullname">Full Name<span class="required">*</span></label>
+                        <input type="text" id="fullname" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email<span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone<span class="required">*</span></label>
+                        <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth<span class="required">*</span></label>
+                        <input type="date" id="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender<span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male" checked required>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female">
+                                <span>Female</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Conference Preferences</h2>
+
+                    <div class="form-group">
+                        <label>Ticket Type<span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="ticket" value="student" checked required>
+                                <span>Student</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="ticket" value="professional">
+                                <span>Professional</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="ticket" value="vip">
+                                <span>VIP</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Areas of Interest<span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="interest" value="ai">
+                                <span>AI</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="interest" value="web">
+                                <span>Web Development</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="interest" value="cloud">
+                                <span>Cloud</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="interest" value="cyber">
+                                <span>Cyber Security</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="interest" value="data">
+                                <span>Data Science</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title" style="margin-top: 32px;">Workshop Selection</h2>
+
+                    <div class="form-group">
+                        <label for="workshop">Select Workshop<span class="required">*</span></label>
+                        <select id="workshop" required>
+                            <option value="">-- Choose a workshop --</option>
+                            <option value="react" selected>React Advanced Patterns</option>
+                            <option value="ml">Machine Learning Fundamentals</option>
+                            <option value="devops">DevOps with Kubernetes</option>
+                            <option value="blockchain">Blockchain Basics</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Account Information</h2>
+
+                    <div class="form-group">
+                        <label for="username">Username<span class="required">*</span></label>
+                        <input type="text" id="username" placeholder="Choose a username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password<span class="required">*</span></label>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password<span class="required">*</span></label>
+                        <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Additional Information</h2>
+
+                    <div class="form-group">
+                        <label for="reason">Why do you want to attend this conference?</label>
+                        <textarea id="reason" placeholder="Write your answer here..."></textarea>
+                    </div>
+
+                    <div class="terms-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="#">terms and conditions</a><span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Registration</button>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>

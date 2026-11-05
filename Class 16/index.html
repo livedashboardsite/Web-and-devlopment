@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background-color: #d6dd0d;
+        transition: all 0.5s ease-in-out;
+        transform: rotate(0deg);
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+           
+    }
+
+    #container::before,
+    #container::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background-color: #d6dd0d;
+        border-radius: 0;
+        transition: all 0.5s ease-in-out;
+        top: 0;
+        left: 0;
+    }
+
+    #container::before {
+        transform: translate(0, 0);
+    }
+
+    #container::after {
+        transform: translate(0, 0);
+    }
+
+    #container:hover{
+        background-color: #ff0000;
+        border-radius: 0 0 0 0;
+        transform: rotate(-45deg) translate(100px, 0px);
+    }
+
+    #container:hover::before {
+        background-color: #ff0000;
+        border-radius: 50%;
+        transform: translate(0px, -200px);
+    }
+
+    #container:hover::after {
+        background-color: #ff0000;
+        border-radius: 50%;
+        transform: translate(200px, 0px);
+    }
+</style>
+<body>
+    <div id ="container"></div>
+</body>
+</html>

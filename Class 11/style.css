@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+nav {
+    background-color: #0B1220;
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.register-btn-nav {
+    background: linear-gradient(135deg, #3b52ff 0%, #2563eb 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px 32px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.page-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.page-subtitle {
+    font-size: 22px;
+    color: #475569;
+    font-weight: 400;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 32px;
+}
+
+.section-title {
+    color: #1d4ed8;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+label .required {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #0f172a;
+    background: #ffffff;
+    transition: border-color 0.15s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: #1d4ed8;
+    cursor: pointer;
+}
+
+.radio-option span,
+.checkbox-option span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.checkbox-group {
+    flex-direction: column;
+    gap: 18px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 160px;
+    font-family: inherit;
+}
+
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.terms-group input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: #1d4ed8;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.terms-group label {
+    margin-bottom: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.terms-group a {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #3b52ff 0%, #2563eb 100%);
+    color: #ffffff;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a0a;
+            padding: 24px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            background: #141414;
+            padding: 14px 24px;
+            border-radius: 4px;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+        .nav-link {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .nav-link.a {
+            color: #ffffff;
+        }
+        .nav-link.d {
+            color: #777777;
+}
+        .search-form {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .input {
+            background: #0a0a0a;
+            border: 1px solid #444444;
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: #ffffff;
+            font-size: 18px;
+            min-width: 320px;
+            outline: none;
+        }
+        .input::placeholder {
+            color: #656464;
+        }
+  
+        @media screen and (max-width: 700px) {
+        .navbar {
+            flex-direction: column;
+            align-items: left;
+            gap: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="nav">
+            <li><a class="nav-link a" href="#">Home</a></li>
+            <li><a class="nav-link" href="#">Link</a></li>
+            <li><a class="nav-link" href="#">Menu</a></li>
+            <li><a class="nav-link d" href="#" >Disabled</a></li>
+        </ul>
+        <form class="search-form" role="search">
+            <input class="input" type="search" placeholder="Search" aria-label="Search">
+        </form>
+    </nav>
+
+    <script> 
+        console.log("Hellooooooooooooooooo");
+        
+    </script>
+
+
+
+</body>
+</html>

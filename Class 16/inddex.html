@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Card Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /  m* Flip Card Container - provides 3D perspective */
+        .flip-card {
+            background-color: transparent;
+            width: 340px;
+            height: 440px;
+            perspective: 1200px;
+        }
+
+        /* Inner wrapper that actually flips */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            border: 4px solid #E8FF3D;
+            box-shadow: 10px 10px 0px #E8FF3D;
+        }
+
+        /* Hover triggers the flip */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Common styles for both faces */
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        /* Front face - image */
+        .flip-card-front {
+            background-color: #1A1A1A;
+            overflow: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(30%);
+        }
+
+        /* Back face - info content */
+        .flip-card-back {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            transform: rotateY(180deg);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+            
+        }
+
+        .flip-card-back h2 {
+            color: #E8FF3D;
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 3px solid #E8FF3D;
+            padding-bottom: 12px;
+        }
+
+        .flip-card-back p {
+            color: #CCCCCC;
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <!-- FRONT FACE: Image -->
+            <div class="flip-card-front">
+                <img src="https://www.vedam.org/favicon.ico" alt="Card Image">
+            </div>
+            <!-- BACK FACE: Info -->
+            <div class="flip-card-back">
+                <h2>Vedam School of Education</h2>
+<p> A new gen college with robotics</p>
+                <p>New generation of education</p>
+        </div>
+    </div>
+</body>
+</html> 

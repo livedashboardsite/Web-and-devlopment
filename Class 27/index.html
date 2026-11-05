@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Web Studio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff5f8;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            color: #351329;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #b83280;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #351329;
+        }
+
+        .nav-text {
+            font-size: 14px;
+            color: #7b526b;
+            letter-spacing: 2px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 390px;
+            padding: 65px 8% 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: #ffe0ef;
+            color: #b83280;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 22px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #d94691;
+        }
+
+        .hero p {
+            max-width: 480px;
+            color: #805c72;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-art {
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+            border-radius: 45% 55% 63% 37% / 45% 40% 60% 55%;
+            background: linear-gradient(135deg, #ffb6d5, #c084fc, #f9a8d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            box-shadow: 0 20px 60px #e9a5cd66;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(4deg);
+            }
+        }
+
+        /* INFINITE CAROUSEL */
+        #carrousel {
+            width: 105%;
+            margin-left: -2.5%;
+            height: 78px;
+            background: #351329;
+            transform: rotate(-2deg);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 12px 30px #35132922;
+        }
+
+        #track {
+            display: flex;
+            width: max-content;
+            animation: marquee 22s linear infinite;
+        }
+
+        .group {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .text {
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            white-space: nowrap;
+            padding: 0 30px;
+        }
+
+        .star {
+            color: #ff80bd;
+            font-size: 28px;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* PROJECT SECTION */
+        .main {
+            padding: 100px 8% 90px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading .small-title {
+            color: #d94691;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #805c72;
+            line-height: 1.7;
+        }
+
+        /* CARDS */
+        .cards {
+            display: flex;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            overflow: hidden;
+            padding: 35px 28px;
+            min-height: 300px;
+            border: 1px solid #ffffff;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.35s, box-shadow 0.35s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px #8c42641c;
+        }
+
+        #child1 {
+            background: linear-gradient(145deg, #ffe0ed, #fbcfe8);
+        }
+
+        #child2 {
+            flex: 1.3;
+            background: linear-gradient(145deg, #7e2262, #351329);
+            color: white;
+        }
+
+        #child3 {
+            background: linear-gradient(145deg, #eadcff, #d8b4fe);
+        }
+
+        .number {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            opacity: 0.65;
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin: 25px 0;
+        }
+
+        .box h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .box p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        .card-link {
+            margin-top: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* BOTTOM BANNER */
+        .banner {
+            margin: 0 8% 80px;
+            padding: 40px;
+            border-radius: 25px;
+            background: linear-gradient(110deg, #f9a8d4, #e9d5ff);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .banner h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #69405d;
+            line-height: 1.7;
+        }
+
+        .banner-symbol {
+            font-size: 55px;
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #351329;
+            color: white;
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #ff9acb;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 850px) {
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero-art {
+                width: 180px;
+                height: 180px;
+                font-size: 65px;
+            }
+
+            .cards {
+                flex-direction: column;
+            }
+
+            .box {
+                min-height: 260px;
+            }
+
+            #child2 {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .navbar {
+                padding: 22px 6%;
+            }
+
+            .nav-text {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                padding: 35px 6% 55px;
+            }
+
+            .hero-art {
+                width: 145px;
+                height: 145px;
+                font-size: 55px;
+                align-self: center;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .text {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .main {
+                padding: 80px 6% 60px;
+            }
+
+            .banner {
+                margin: 0 6% 55px;
+                padding: 28px;
+            }
+
+            .banner h2 {
+                font-size: 23px;
+            }
+
+            .banner-symbol {
+                font-size: 35px;
+            }
+
+            footer {
+                padding: 25px 6%;
+            }
+        }
+
+        /* REDUCED MOTION ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            #track,
+            .hero-art {
+                animation: none;
+            }
+
+            .box {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- my top bar -->
+    <header class="navbar">
+        <div class="logo">Prathamesh</div>
+        <div class="nav-text">LEARN • BUILD • REPEAT</div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tag">✦ ASPIRING WEB DEVELOPER</div>
+
+            <h1>
+                Learning to build<br>
+                <span>the web, one step at a time.</span>
+            </h1>
+
+            <p>
+                Hi, I'm Prathamesh. I'm a student learning HTML,
+                CSS and JavaScript, and this page is me practicing
+                everything I've picked up so far.
+            </p>
+        </div>
+
+        <div class="hero-art">✿</div>
+    </section>
+
+    <!-- INFINITE CAROUSEL -->
+    <div id="carrousel">
+        <div id="track">
+
+            <div class="group">
+                <div class="text">HTML &amp; SEMANTIC MARKUP</div>
+                <span class="star">✦</span>
+
+                <div class="text">EXTERNAL CSS</div>
+                <span class="star">✦</span>
+
+                <div class="text">JAVASCRIPT BASICS</div>
+                <span class="star">✦</span>
+
+                <div class="text">UI LAYOUT PRACTICE</div>
+                <span class="star">✦</span>
+
+                <div class="text">HANDS-ON PROJECTS</div>
+                <span class="star">✦</span>
+            </div>
+
+            <div class="group" aria-hidden="true">
+                <div class="text">HTML &amp; SEMANTIC MARKUP</div>
+                <span class="star">✦</span>
+
+                <div class="text">EXTERNAL CSS</div>
+                <span class="star">✦</span>
+
+                <div class="text">JAVASCRIPT BASICS</div>
+                <span class="star">✦</span>
+
+                <div class="text">UI LAYOUT PRACTICE</div>
+                <span class="star">✦</span>
+
+                <div class="text">HANDS-ON PROJECTS</div>
+                <span class="star">✦</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="main">
+
+        <div class="section-heading">
+            <div class="small-title">WHAT I'M LEARNING</div>
+            <h2>Practice. Build. Improve.</h2>
+            <p>The core skills I'm working on, one class at a time.</p>
+        </div>
+
+        <div class="cards">
+
+            <div id="card-1" class="box">
+                <div class="number">01 / MARKUP</div>
+
+                <div class="card-icon">🎨</div>
+
+                <div>
+                    <h3>Frontend</h3>
+                    <p>
+                        Building clean layouts with HTML and CSS,
+                        keeping structure simple and readable.
+                    </p>
+                    <div class="card-link">LEARNING BY DOING ↗️</div>
+                </div>
+            </div>
+
+            <div id="card-2" class="box">
+                <div class="number">02 / LOGIC</div>
+
+                <div class="card-icon">✧</div>
+
+                <div>
+                    <h3>JavaScript</h3>
+                    <p>
+                        Practicing the fundamentals — types,
+                        coercion and equality — with console.log.
+                    </p>
+                    <div class="card-link">DEBUG &amp; VERIFY ↗️</div>
+                </div>
+            </div>
+
+            <div id="card-3" class="box">
+                <div class="number">03 / PRACTICE</div>
+
+                <div class="card-icon">⚡</div>
+
+                <div>
+                    <h3>Projects</h3>
+                    <p>
+                        Recreating real interfaces and shipping
+                        functional MVPs instead of static mockups.
+                    </p>
+                    <div class="card-link">BUILD TO LEARN ↗️</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOTTOM BANNER -->
+    <section class="banner">
+        <div>
+            <h2>Learning in public. ✨</h2>
+            <p>
+                Keep building, keep debugging and keep improving.
+                The web is my canvas too.
+            </p>
+        </div>
+
+        <div class="banner-symbol">♡</div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>©️ <span>Prathamesh</span> · Aspiring Web Developer.</div>
+        <div>HAND-CODED &amp; STILL LEARNING</div>
+    </footer>
+
+</body>
+</html>

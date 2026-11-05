@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Frontend Developer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fcff;
+    color: #071d3d;
+}
+
+nav {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e7edf2;
+    background: #f8fcff;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #10243e;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #b23d49;
+}
+
+.talk-btn {
+    text-decoration: none;
+    color: #092443;
+    border: 1.5px solid #173958;
+    border-radius: 30px;
+    padding: 13px 27px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.talk-btn:hover {
+    background: #071d3d;
+    color: white;
+}
+
+.hero {
+    min-height: calc(100vh - 82px);
+    padding: 70px 7%;
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    align-items: center;
+    gap: 35px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #e0eaf0;
+    border-radius: 30px;
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #153c57;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background: #20b99a;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #20b99a66;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 6.3vw, 86px);
+    line-height: 0.99;
+    letter-spacing: -3.5px;
+    font-weight: 700;
+    color: #061d40;
+}
+
+h1 span {
+    display: block;
+}
+
+h1 .accent {
+    color: #b04450;
+    font-style: italic;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.description {
+    max-width: 570px;
+    color: #52718a;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-top: 35px;
+    margin-bottom: 34px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 17px 27px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    color: white;
+    background: #071d3d;
+    border: 1px solid #071d3d;
+    box-shadow: 0 3px 0 #d9e3eb;
+}
+
+.primary-btn:hover {
+    background: #b04450;
+    border-color: #b04450;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    color: #153958;
+    border: 1px solid #c8d9e5;
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background: #eaf2f8;
+}
+
+/* Right-side illustration */
+
+.hero-visual {
+    position: relative;
+    height: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+.red-shape {
+    position: absolute;
+    width: 80%;
+    height: 91%;
+    background: #c51b0b;
+    border-radius: 49% 49% 43% 43% / 42% 42% 52% 52%;
+    transform: rotate(3deg);
+    top: 3%;
+    left: 10%;
+    box-shadow: 0 2px 0 #9f1b10;
+}
+
+.profile-card {
+    position: absolute;
+    width: 66%;
+    height: 79%;
+    top: 10%;
+    left: 18%;
+    background: #e8e8d8;
+    border: 2px solid #d2d3c5;
+    border-radius: 47% 47% 12px 12px / 35% 35% 12px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 18%;
+    box-shadow: 8px 7px 0 #121b21;
+    z-index: 2;
+}
+
+
+.card-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(14px, 1.8vw, 23px);
+    font-weight: bold;
+    color: #202c22;
+    margin-top: 19px;
+    text-align: center;
+}
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home" class="logo" style="text-decoration:none;color:inherit;">L.</a>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="talk-btn">Let's Talk</a>
+</nav>
+
+<main class="hero" id="home">
+
+    <section class="hero-content">
+
+        <div class="availability">
+            <span class="dot"></span>
+            Available for work
+        </div>
+
+        <h1>
+            <span>Creative</span>
+            <span class="accent">Frontend</span>
+            <span>Developer.</span>
+        </h1>
+
+        <p class="description" id="about">
+            I design and build clean, modern and engaging digital
+            experiences for the web.
+        </p>
+
+        <div class="buttons">
+            <a href="#work" class="primary-btn">Explore My Work</a>
+            <a href="#contact" class="secondary-btn">Contact Me</a>
+        </div>
+
+    </section>
+
+    <section class="hero-visual" aria-label="Profile illustration">
+
+        <div class="red-shape"></div>
+
+        <div class="profile-card">
+
+            
+            <div class="card-name">Lumansi.</div>
+            <div class="card-role">Frontend Developer</div>
+            <div class="card-line"></div>
+
+        </div>
+
+    
+         
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

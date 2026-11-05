@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #Parent {
+        border: 1px solid #000000;
+        padding: 15px;
+        overflow: visible;
+    }
+    #Parent > div {
+        margin: 10px 0;
+        width: 100px;
+        height: 100px;
+    }
+    #container  { background-color: #d6dd00; }
+    #container2 { background-color: #0000ff; }
+    #container3 { background-color: #ff0000; }
+    #container4 { background-color: #16cf3e; }
+    #container5 { background-color: #b21387; }
+    #container6 { background-color: #000000; }
+
+    /* ===== RACE ANIMATIONS: come in from RIGHT, move LEFT into place, then morph ===== */
+    /* 1. Yellow → Circle (fastest: 1.6s) */
+    @keyframes race1 {
+        0%   { transform: translateX(85vw); border-radius: 0; }
+        80%  { transform: translateX(0);    border-radius: 0; }
+        100% { transform: translateX(0);    border-radius: 50%; }
+    }
+    /* 2. Blue → Horizontal Oval (2.3s) */
+    @keyframes race2 {
+        0%   { transform: translateX(85vw); border-radius: 0; }
+        80%  { transform: translateX(0);    border-radius: 0; }
+        100% { transform: translateX(0);    border-radius: 50% / 25%; }
+    }
+    /* 3. Red → Tall Rectangle (2.9s) */
+    @keyframes race3 {
+        0%   { transform: translateX(85vw); border-radius: 0; width: 100px; height: 100px; }
+        80%  { transform: translateX(0);    border-radius: 0; width: 100px; height: 100px; }
+        100% { transform: translateX(0);    border-radius: 4px; width: 60px; height: 170px; }
+    }
+    /* 4. Green → Wide Rectangle (3.6s) */
+    @keyframes race4 {
+        0%   { transform: translateX(85vw); border-radius: 0; width: 100px; height: 100px; }
+        80%  { transform: translateX(0);    border-radius: 0; width: 100px; height: 100px; }
+        100% { transform: translateX(0);    border-radius: 4px; width: 170px; height: 60px; }
+    }
+    /* 5. Purple → Rotated Diamond (4.2s) */
+    @keyframes race5 {
+        0%   { transform: translateX(85vw) rotate(0deg); border-radius: 0; }
+        80%  { transform: translateX(0)    rotate(0deg); border-radius: 0; }
+        100% { transform: translateX(0)    rotate(45deg); border-radius: 10%; }
+    }
+    /* 6. Black → Organic Blob (slowest: 5.0s) */
+    @keyframes race6 {
+        0%   { transform: translateX(85vw); border-radius: 0; }
+        80%  { transform: translateX(0);    border-radius: 0; }
+        100% { transform: translateX(0);    border-radius: 60% 30% 70% 20% / 40% 50% 30% 60%; }
+    }
+
+    /* Trigger all races when hovering the Parent */
+    #Parent:hover #container  { animation: race1 1.6s ease-in-out forwards; }
+    #Parent:hover #container2 { animation: race2 2.3s ease-in-out forwards; }
+    #Parent:hover #container3 { animation: race3 2.9s ease-in-out forwards; }
+    #Parent:hover #container4 { animation: race4 3.6s ease-in-out forwards; }
+    #Parent:hover #container5 { animation: race5 4.2s ease-in-out forwards; }
+    #Parent:hover #container6 { animation: race6 5.0s ease-in-out forwards; }
+</style>
+<body><div id="Parent">
+    <div id ="container"></div>
+    <div id ="container2"></div>
+    <div id ="container3"></div>
+    <div id ="container4"></div>
+    <div id ="container5"></div>
+    <div id ="container6"></div>   </div>
+</body>
+</html>

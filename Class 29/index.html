@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <!-- <h1 id="h1">Hello World</h1>
+      <h2 class="h2">Hello JavaScript</h2>
+      <h2 class="h2">Hello HTML</h2>
+      <h2 class="h2">Hello CSS</h2> -->
+<button id="btn">Click me</button>
+
+<script>
+   
+//    let h1 = document.getElementById("h1")
+//    console.log(h1);
+//    h1.style.color = "red"
+//    h1.innerText = "Hello Pratham"
+
+//    let h2 = document.getElementsByClassName("h2")
+//    console.log(h2);
+//    for(let i of h2){
+//      i.style.color = "pink"
+//    }
+
+let btn = document.getElementById("btn")
+
+btn.addEventListener("click", function(){
+  if (document.body.style.backgroundColor === "blue"){
+    document.body.style.backgroundColor = "white"
+  }
+  else{
+    document.body.style.backgroundColor = "blue"
+  }
+})
+
+
+
+
+   
+
+</script>
+</body>
+</html>

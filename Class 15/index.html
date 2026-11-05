@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Flexbox</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #430866;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page {
+        width: min(1082px, 96vw);
+        display: flex;
+        flex-direction: column;
+        gap: 42px;
+        padding: 32px;
+    }
+
+    /* The whole artwork is built only with Flexbox */
+    .layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .row {
+        display: flex;
+        gap: 28px;
+    }
+
+    .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .top-wide {
+        height: 82px;
+        background: #bd4bd0;
+    }
+
+    .left-middle {
+        display: flex;
+        gap: 28px;
+        height: 269px;
+    }
+
+    .left-stack {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cyan-tall {
+        flex: 1;
+        background: #08b7c5;
+    }
+
+    .orange-large {
+        flex: 1;
+        background: #ffab08;
+    }
+
+    .red-small {
+        height: 93px;
+        background: #f44355;
+    }
+
+    .right-top {
+        display: flex;
+        gap: 28px;
+        height: 141px;
+    }
+
+    .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .red-top {
+        height: 76px;
+        background: #f44355;
+    }
+
+    .cyan-small {
+        height: 48px;
+        background: #08b7c5;
+    }
+
+    .orange-small {
+        height: 80px;
+        background: #ffab08;
+    }
+
+    .cyan-top-right {
+        height: 92px;
+        background: #08b7c5;
+    }
+
+    .orange-right {
+        height: 62px;
+        background: #ffab08;
+    }
+
+    .red-right {
+        height: 50px;
+        background: #f44355;
+    }
+
+    .purple-bottom {
+        height: 115px;
+        background: #bd4bd0;
+    }
+
+    .title {
+        color: white;
+        font-size: clamp(48px, 7vw, 94px);
+        font-weight: 800;
+        letter-spacing: 8px;
+        text-align: center;
+        line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+        .page {
+            gap: 28px;
+            padding: 18px;
+        }
+
+        .row,
+        .left-middle,
+        .right-top {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .left-middle,
+        .right-top {
+            gap: 12px;
+        }
+
+        .top-wide,
+        .red-top,
+        .cyan-small,
+        .orange-small,
+        .cyan-top-right,
+        .orange-right,
+        .red-right,
+        .red-small,
+        .purple-bottom,
+        .cyan-tall,
+        .orange-large {
+            height: 90px;
+        }
+
+        .title {
+            letter-spacing: 4px;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <main class="page">
+
+        <section class="layout">
+
+            <div class="row">
+
+                <div class="left">
+                    <div class="top-wide"></div>
+
+                    <div class="left-middle">
+                        <div class="left-stack">
+                            <div class="orange-large"></div>
+                            <div class="red-small"></div>
+                        </div>
+
+                        <div class="cyan-tall"></div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="right-top">
+
+                        <div class="right-column">
+                            <div class="red-top"></div>
+                            <div class="cyan-small"></div>
+                            <div class="orange-small"></div>
+                        </div>
+
+                        <div class="right-column">
+                            <div class="cyan-top-right"></div>
+                            <div class="orange-right"></div>
+                            <div class="red-right"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="purple-bottom"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="title">CSS FLEXBOX</div>
+
+    </main>
+</body>
+</html>

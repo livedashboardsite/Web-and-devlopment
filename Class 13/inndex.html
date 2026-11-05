@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumansi - Full Stack Developer &amp; Tech Enthusiast</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-card {
+            width: 800px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Header Section --- */
+        .header {
+            display: flex;
+            position: relative;
+            min-height: 320px;
+            background-color: #ffffff;
+        }
+
+        .header-left {
+            width: 55%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .header-left h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .job-title {
+            background-color: #f5b301;
+            color: #333;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .company-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .company-logo i {
+            color: #000;
+            font-size: 18px;
+        }
+
+        /* Yellow Circle Backdrop & Image Container */
+        .header-right {
+            width: 45%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yellow-bg {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background-color: #f5b301;
+            border-radius: 50%;
+            top: -20px;
+            right: 20px;
+        }
+
+        .profile-img {
+            position: absolute;
+            bottom: 0;
+            right: 30px;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Curve decoration */
+        .header-left-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: #fff;
+            border-radius: 0 160px 160px 0;
+            box-shadow: 10px 0 20px rgba(0,0,0,0.03);
+            z-index: 1;
+        }
+
+        /* --- Main Content Grid --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 50px;
+            position: relative;
+        }
+
+        /* Divider line between columns */
+        .content-grid::after {
+            content: "";
+            position: absolute;
+            top: 40px;
+            bottom: 40px;
+            left: 50%;
+            width: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            background-color: #f5b301;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #222;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1.2;
+        }
+
+        .section p {
+            color: #555;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ol, ul {
+            padding-left: 20px;
+            color: #555;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        ol li, ul li {
+            margin-bottom: 6px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin-top: 15px;
+            font-size: 11.5px;
+        }
+
+        /* --- Footer / Contact Section --- */
+        .footer {
+            border-top: 1px solid #e0e0e0;
+            margin: 0 50px 30px 50px;
+            padding-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11.5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #f5b301;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-card">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-left-bg"></div>
+            
+            <div class="header-left">
+                <h1>Lumansi</h1>
+                <div class="job-title">Full Stack Developer</div>
+                <div class="company-logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Vedam School of<br>Technology</span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="yellow-bg"></div>
+                <!-- Profile Image -->
+                <img class="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Lumansi">
+            </div>
+        </div>
+
+        <!-- Main Body Grid -->
+        <div class="content-grid">
+            
+            <!-- Column 1 -->
+            <div class="column">
+                <!-- Background & Education -->
+                <div class="section">
+                    <div class="section-header">
+                        <div class="icon-box"><i class="fa-solid fa-user-graduate"></i></div>
+                        <h2 class="section-title">Background<br>&amp; Education</h2>
+                    </div>
+                    <p>Dedicated technology student at Vedam School of Technology with a strong foundation in modern web development and software programming.</p>
+                    <ol>
+                        <li>Pursuing technical studies at Vedam School of Technology.</li>
+                        <li>Specialized in full-stack architecture and robust programming logic.</li>
+                        <li>Active competitor and tech enthusiast building scalable web systems.</li>
+                    </ol>
+                </div>
+
+                <!-- Achievements & Sports -->
+                <div class="section">
+                    <div class="section-header">
+                        <div class="icon-box"><i class="fa-solid fa-award"></i></div>
+                        <h2 class="section-title">Achievements</h2>
+                    </div>
+                    <ul>
+                        <li><strong>Basketball:</strong> Played competitively at the district level, showcasing teamwork and discipline.</li>
+                        <li><strong>Programming:</strong> Recognized programming and coding expert with mastery in Java.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="column">
+                <!-- Tech Stack & Skills -->
+                <div class="section">
+                    <div class="section-header">
+                        <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h2 class="section-title">Tech Stack<br>&amp; Skills</h2>
+                    </div>
+                    <p>Proficient across the complete MERN stack ecosystem alongside core systems programming.</p>
+                    <ul>
+                        <li><strong>MERN Stack:</strong> MongoDB, Express.js, React.js, Node.js.</li>
+                        <li><strong>Core Languages:</strong> Java, JavaScript, HTML5, CSS3.</li>
+                        <li><strong>Development:</strong> RESTful APIs, database design, and version control.</li>
+                    </ul>
+                </div>
+
+                <!-- Personal Philosophy -->
+                <div class="section">
+                    <div class="section-header">
+                        <div class="icon-box"><i class="fa-solid fa-heart"></i></div>
+                        <h2 class="section-title">Interests</h2>
+                    </div>
+                    <p>Balancing technical problem-solving with athletic pursuits and continuous learning in software engineering.</p>
+                    <p class="quote">“Building clean code and driving impactful digital solutions.”</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer / Contact Info -->
+        <div class="footer">
+            <div class="contact-col">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <span>lumansi@vedam.edu.in</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <span>+91 98765 43210</span>
+                </div>
+            </div>
+
+            <div class="contact-col">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <span>@lumansi_tech</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <span>linkedin.com/in/lumansi</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
